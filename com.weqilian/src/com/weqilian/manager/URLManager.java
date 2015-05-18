@@ -1,4 +1,4 @@
-package manager;
+package com.weqilian.manager;
 
 public class URLManager {
 	
@@ -16,6 +16,14 @@ public class URLManager {
 	 */
 	public static final String getSmsServiceUrl(){
 		return "http://api.ssql.com.cn/cgi-bin/asmx/smsservice.html";
+	}
+	
+	/**
+	 * ×¢²á½Ó¿Ú
+	 * @return
+	 */
+	public static final String getRegisterUrl(){
+		return "http://api.ssql.com.cn/cgi-bin/register/create.html";
 	}
 
 }

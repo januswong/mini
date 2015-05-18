@@ -1,12 +1,8 @@
 package com.weqilian.ui;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import manager.URLManager;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.weqilian.R;
+import com.weqilian.manager.URLManager;
 
 public class SplashActivity extends Activity implements OnClickListener{
 	
@@ -36,25 +33,29 @@ public class SplashActivity extends Activity implements OnClickListener{
 		initView();
 //		requestLogin();	
 		requestGetSms();
+//		requestRegister();
+	}
+
+	private void requestRegister() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void requestGetSms() {
 
 		JSONObject jsonObj = new JSONObject();
-		Map<String, String> map = new HashMap<String, String>();  
-		map.put("mobile", "15212776323");  
+		JSONObject obj = new JSONObject();
 		try {
-			jsonObj.put("smsservice", map);
+			jsonObj.put("mobile", "14705607978");
+			obj.put("smsservice", jsonObj);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Log.i("zzwang11111111", e.getMessage());
 		}
-		JsonRequest<JSONObject>  jsonRequest = new JsonObjectRequest(Method.POST, URLManager.getSmsServiceUrl(), jsonObj, new Listener<JSONObject>() {
+		JsonRequest<JSONObject>  jsonRequest = new JsonObjectRequest(Method.POST, URLManager.getSmsServiceUrl(), obj, new Listener<JSONObject>() {
 
 			@Override
 			public void onResponse(JSONObject arg0) {
-				// TODO Auto-generated method stub
 				
 				Log.i("zzwang", "   id: " + Thread.currentThread().getId() +"   onResponse:  " + arg0.toString());
 			}
@@ -83,17 +84,17 @@ public class SplashActivity extends Activity implements OnClickListener{
 	private void requestLogin() {
 		// TODO Auto-generated method stub
 		JSONObject jsonObj = new JSONObject();
-		Map<String, String> map = new HashMap<String, String>();  
-		map.put("mobile", "12345678911");  
-		map.put("password", "88cadf93e4ef147a8a1c7080c13375d3"); 
+		JSONObject obj = new JSONObject();
 		try {
-			jsonObj.put("sign", map);
+			jsonObj.put("mobile", "18656132832");  
+			jsonObj.put("password", "234200"); 
+			obj.put("sign", jsonObj);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Log.i("zzwang11111111", e.getMessage());
 		}
-		JsonRequest<JSONObject>  jsonRequest = new JsonObjectRequest(Method.POST, URLManager.getSignUrl(), jsonObj, new Listener<JSONObject>() {
+		JsonRequest<JSONObject>  jsonRequest = new JsonObjectRequest(Method.POST, URLManager.getSignUrl(), obj, new Listener<JSONObject>() {
 
 			@Override
 			public void onResponse(JSONObject arg0) {
